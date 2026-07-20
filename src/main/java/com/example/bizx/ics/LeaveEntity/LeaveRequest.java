@@ -3,7 +3,6 @@ package com.example.bizx.ics.LeaveEntity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -61,7 +60,7 @@ public class LeaveRequest {
 
 	private String dayType;
 
-//	private String reason;
+	private String reason;
 
 	private String status;
 	private String previousStatus;
@@ -74,12 +73,12 @@ public class LeaveRequest {
 		this.address = address;
 	}
 
-//	private String address;
+	private String address;
 	private LocalDate adoptionDate;
 
 	private Integer childAgeInMonths;
 
-//	private String adoptionDocument;
+	private String adoptionDocument;
 
 	public LocalDate getAdoptionDate() {
 		return adoptionDate;
@@ -106,19 +105,7 @@ public class LeaveRequest {
 	}
 
 	// New Field
-
-	@Column(columnDefinition = "TEXT")
-	private String reason;
-
-	@Column(columnDefinition = "TEXT")
-	private String address;
-
-	@Column(columnDefinition = "TEXT")
-	private String adoptionDocument;
-
-	@Column(columnDefinition = "TEXT")
 	private String approverRemarks;
-//	private String approverRemarks;
 
 	private LocalDateTime appliedOn;
 
