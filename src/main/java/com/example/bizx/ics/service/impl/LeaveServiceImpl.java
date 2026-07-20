@@ -132,6 +132,18 @@ public class LeaveServiceImpl implements LeaveService {
 		lr.setStatus("PENDING");
 		lr.setAppliedOn(LocalDateTime.now());
 
+		lr.setUsername(user.getUsername());
+		lr.setPhone(user.getPhone());
+
+		System.out.println("Address Length : " + (lr.getAddress() == null ? 0 : lr.getAddress().length()));
+
+		System.out.println("Reason Length : " + (lr.getReason() == null ? 0 : lr.getReason().length()));
+
+		System.out.println("Leave Type Length : " + (lr.getLeaveType() == null ? 0 : lr.getLeaveType().length()));
+
+		System.out.println("Username Length : " + (lr.getUsername() == null ? 0 : lr.getUsername().length()));
+
+		System.out.println("Phone Length : " + (lr.getPhone() == null ? 0 : lr.getPhone().length()));
 		leaveRepo.save(lr);
 
 		return "Leave Applied Successfully";
