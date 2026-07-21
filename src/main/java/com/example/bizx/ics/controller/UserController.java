@@ -20,7 +20,9 @@ import com.example.bizx.ics.dto.LoginResponseDTO;
 import com.example.bizx.ics.dto.RegisterRequestDTO;
 import com.example.bizx.ics.service.UserService;
 
-@CrossOrigin(origins = {"http://localhost:3000", "https://prasanthkota25.github.io"}, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.OPTIONS})
+@CrossOrigin(origins = { "http://localhost:3000",
+		"https://prasanthkota25.github.io" }, allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST,
+				RequestMethod.PUT, RequestMethod.OPTIONS })
 @RestController
 @RequestMapping("/users")
 public class UserController {
