@@ -94,6 +94,8 @@ public class UserServiceImpl implements UserService {
 			return List.of();
 		}
 
-		return repo.findByFirstnameStartingWithIgnoreCaseOrLastnameStartingWithIgnoreCase(keyword, keyword);
+//		return repo.findByFirstnameStartingWithIgnoreCaseOrLastnameStartingWithIgnoreCase(keyword, keyword);
+
+		return repo.searchUsers(keyword);
 	}
 }
