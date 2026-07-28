@@ -71,6 +71,7 @@ public class LoginEntity {
 	@Column(unique = true)
 	private String email;
 
+	@Column(unique = true)
 	private String phone;
 
 	private String role;

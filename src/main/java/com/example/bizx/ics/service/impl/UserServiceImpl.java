@@ -33,21 +33,52 @@ public class UserServiceImpl implements UserService {
 	public LoginEntity getById(Integer id) {
 		return repo.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
 	}
+//
+//	@Override
+//	public LoginResponseDTO register(LoginEntity user) {
+//
+//		if (repo.findByUsername(user.getUsername()) != null) {
+//			throw new IllegalArgumentException("Username already exists");
+//		}
+//
+//		if (user.getGender() == null || user.getGender().isEmpty()) {
+//			throw new IllegalArgumentException("Gender is required");
+//		}
+//
+//		user.setGender(user.getGender());
+//
+//		// Default values for newly registered users
+//		user.setRole("EMPLOYEE");
+//		user.setStatus("ACTIVE");
+//
+//		repo.save(user);
+//
+//		return new LoginResponseDTO("Registration Successful");
+//	}
 
 	@Override
 	public LoginResponseDTO register(LoginEntity user) {
 
-		if (repo.findByUsername(user.getUsername()) != null) {
+		// Username check
+		if (repo.findByUsernameIgnoreCase(user.getUsername()) != null) {
 			throw new IllegalArgumentException("Username already exists");
 		}
 
-		if (user.getGender() == null || user.getGender().isEmpty()) {
+		// Email check
+		if (repo.findByEmailIgnoreCase(user.getEmail()) != null) {
+			throw new IllegalArgumentException("Email already exists");
+		}
+
+		// Phone check
+		if (repo.findByPhone(user.getPhone()) != null) {
+			throw new IllegalArgumentException("Phone number already exists");
+		}
+
+		// Gender validation
+		if (user.getGender() == null || user.getGender().isBlank()) {
 			throw new IllegalArgumentException("Gender is required");
 		}
 
-		user.setGender(user.getGender());
-
-		// Default values for newly registered users
 		user.setRole("EMPLOYEE");
 		user.setStatus("ACTIVE");
 
