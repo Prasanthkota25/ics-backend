@@ -55,12 +55,22 @@ public class DataSeeder implements CommandLineRunner {
 		if (holidayRepo.count() > 0)
 			return; // already seeded, skip
 
-		holidayRepo.saveAll(List.of(holiday("2026-01-01", "New Year", 2026), holiday("2026-01-14", "Pongal", 2026),
-				holiday("2026-01-26", "Republic Day", 2026), holiday("2026-03-30", "Good Friday", 2026),
-				holiday("2026-04-14", "Tamil New Year", 2026), holiday("2026-05-01", "Labour Day", 2026),
-				holiday("2026-08-15", "Independence Day", 2026), holiday("2026-10-02", "Gandhi Jayanti", 2026),
-				holiday("2026-10-20", "Dussehra", 2026), holiday("2026-11-04", "Diwali", 2026),
-				holiday("2026-11-05", "Diwali Holiday", 2026), holiday("2026-12-25", "Christmas", 2026)));
+//		holidayRepo.saveAll(List.of(holiday("2026-01-01", "New Year", 2026), holiday("2026-01-14", "Pongal", 2026),
+//				holiday("2026-01-26", "Republic Day", 2026), holiday("2026-03-30", "Good Friday", 2026),
+//				holiday("2026-04-14", "Tamil New Year", 2026), holiday("2026-05-01", "Labour Day", 2026),
+//				holiday("2026-08-15", "Independence Day", 2026), holiday("2026-10-02", "Gandhi Jayanti", 2026),
+//				holiday("2026-10-20", "Dussehra", 2026), holiday("2026-11-04", "Diwali", 2026),
+//				holiday("2026-11-05", "Diwali Holiday", 2026), holiday("2026-12-25", "Christmas", 2026)));
+//
+//		System.out.println("✅ Holidays seeded.");
+//	}
+
+		holidayRepo.saveAll(List.of(holiday("2026-01-01", "New Year's Day", 2026),
+				holiday("2026-01-15", "Makara Sankranti", 2026), holiday("2026-01-26", "Republic Day", 2026),
+				holiday("2026-03-19", "Ugadi", 2026), holiday("2026-05-01", "May Day", 2026),
+				holiday("2026-05-28", "Bakrid/Eid al Adha", 2026), holiday("2026-09-14", "Ganesh Chaturthi", 2026),
+				holiday("2026-10-02", "Gandhi Jayanti", 2026), holiday("2026-10-20", "Vijaya Dashami", 2026),
+				holiday("2026-11-09", "Diwali", 2026), holiday("2026-12-25", "Christmas Day", 2026)));
 
 		System.out.println("✅ Holidays seeded.");
 	}
