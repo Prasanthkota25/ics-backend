@@ -156,16 +156,18 @@ public class ChatbotService {
 
 			return response;
 		}
-		if (message.contains("privilege")) {
+		if (message.contains("privilege")
+		        || message.contains("privilege leave")
+		        || message.contains("pl")) {
 
-			System.out.println("Privilege block entered");
+		    System.out.println("Privilege block entered");
 
-			double balance = getLeaveBalance(user, "Privilege Leave", 13);
+		    double balance = getLeaveBalance(user, "Privilege Leave", 13);
 
-			response.setReply("Your Privilege Leave balance is " + balance + " Days");
+		    response.setReply("Your Privilege Leave balance is " + balance + " Days");
 
-			saveHistory(request, response);
-			return response;
+		    saveHistory(request, response);
+		    return response;
 		}
 		if (message.contains("leave balance") || message.contains("leave balances") || message.contains("all leaves")
 				|| message.contains("balance") || message.contains("show my leave balance")) {
