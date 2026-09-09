@@ -21,8 +21,17 @@ public class HolidayService {
 		return repo.findByYear(year);
 	}
 
+//	public List<String> getHolidayDates(int year) {
+//		return repo.findByYear(year).stream().map(h -> h.getHolidayDate().toString()).collect(Collectors.toList());
+//	}
+
 	public List<String> getHolidayDates(int year) {
-		return repo.findByYear(year).stream().map(h -> h.getHolidayDate().toString()).collect(Collectors.toList());
+
+		List<Holiday> holidays = repo.findByYear(year);
+
+		holidays.forEach(System.out::println);
+
+		return holidays.stream().map(h -> h.getHolidayDate().toString()).collect(Collectors.toList());
 	}
 
 	public Holiday add(Holiday holiday) {
@@ -32,4 +41,5 @@ public class HolidayService {
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}
+
 }
