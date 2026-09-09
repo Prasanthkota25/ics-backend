@@ -50,6 +50,7 @@ public class ChatbotService {
 		String username = request.getUsername();
 
 		String message = request.getMessage().trim().toLowerCase();
+		System.out.println("Processed Message = [" + message + "]");
 
 		System.out.println("Username =prasanth " + request.getUsername());
 		System.out.println("Message = " + request.getMessage());
@@ -155,6 +156,17 @@ public class ChatbotService {
 
 			return response;
 		}
+		if (message.contains("privilege")) {
+
+			System.out.println("Privilege block entered");
+
+			double balance = getLeaveBalance(user, "Privilege Leave", 13);
+
+			response.setReply("Your Privilege Leave balance is " + balance + " Days");
+
+			saveHistory(request, response);
+			return response;
+		}
 		if (message.contains("leave balance") || message.contains("leave balances") || message.contains("all leaves")
 				|| message.contains("balance") || message.contains("show my leave balance")) {
 
@@ -196,15 +208,16 @@ public class ChatbotService {
 			saveHistory(request, response);
 			return response;
 		}
-		if (message.contains("privilege")) {
+//		if (message.contains("privilege")) {
+//
+//			double balance = getLeaveBalance(user, "Privilege Leave", 13);
+//
+//			response.setReply("Your Privilege Leave balance is " + balance + " Days");
+//
+//			saveHistory(request, response);
+//			return response;
+//		}
 
-			double balance = getLeaveBalance(user, "Privilege Leave", 13);
-
-			response.setReply("Your Privilege Leave balance is " + balance + " Days");
-
-			saveHistory(request, response);
-			return response;
-		}
 		if (message.contains("lop")) {
 
 			response.setReply("LOP Balance : 365 Days");
@@ -256,11 +269,20 @@ public class ChatbotService {
 			saveHistory(request, response);
 			return response;
 		}
+
+		System.out.println("Default block entered");
+		System.out.println("Message received = " + message);
+
 		response.setReply("Sorry, I don't have information about that.");
 
 		saveHistory(request, response);
 
 		return response;
+//		response.setReply("Sorry, I don't have information about that.");
+//
+//		saveHistory(request, response);
+//
+//		return response;
 	}
 
 	private void saveHistory(ChatRequest request, ChatResponse response) {
