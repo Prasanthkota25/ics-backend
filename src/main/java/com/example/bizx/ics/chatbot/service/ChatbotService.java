@@ -256,6 +256,19 @@ public class ChatbotService {
 			saveHistory(request, response);
 			return response;
 		}
+
+		if (message.trim().equalsIgnoreCase("help") || message.trim().equalsIgnoreCase("support")
+				|| message.trim().equalsIgnoreCase("bizx help")) {
+
+			response.setReply("For BizX Support:<br><br>" + "Person 1 : John Smith<br>" + "Employee ID : EMP001<br><br>"
+					+ "Person 2 : David Kumar<br>" + "Employee ID : EMP002<br><br>"
+					+ "Support Email : bizxsupport@company.com<br><br>"
+					+ "Please contact the above support team for any BizX-related assistance.");
+
+			saveHistory(request, response);
+			return response;
+		}
+
 		response.setReply("Sorry, I don't have information about that.");
 
 		saveHistory(request, response);
@@ -275,4 +288,5 @@ public class ChatbotService {
 
 		chatHistoryRepository.save(history);
 	}
+
 }
